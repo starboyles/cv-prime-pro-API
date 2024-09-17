@@ -1,10 +1,11 @@
-import express from "express";
+import express, { Request, Response } from "express";
+import { PORT } from "./secrets";
 const app = express();
 
-app.get("/", (req, res) => {
+app.get("/", (req:Request, res:Response) => {
   res.send("CV Prime Pro Server");
 });
 
-app.listen(6000, () => {
-  console.log("Server is running on port $`6000`");
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
 });
