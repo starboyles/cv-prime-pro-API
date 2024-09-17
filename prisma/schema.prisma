@@ -14,7 +14,7 @@ datasource db {
 }
 
   model User {
-  id        String   @id @default(auto()) @map("_id")  // Use MongoDB's ObjectId
+  id        String   @id @default(auto()) @map("_id") 
   name      String
   email     String   @unique
   password  String
