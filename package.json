@@ -5,6 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "kill-port": "kill -9 $(lsof -t -i:6000)",
+    "dev": "npm run kill-port && nodemon",
     "start": "npx nodemon"
   },
   "keywords": [],
