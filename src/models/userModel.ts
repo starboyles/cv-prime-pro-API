@@ -64,3 +64,11 @@ const userSchema: Schema<IUser> = new mongoose.Schema(
     timestamps: true,
   }
 );
+
+userSchema.pre<IUser>('save', function(next) {
+    this.updatedAt = new Date();
+    next();
+  });
+
+const User = mongoose.model<IUser>("User", userSchema);
+export default User;
