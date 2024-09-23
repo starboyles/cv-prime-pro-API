@@ -9,6 +9,8 @@
     "dev": "npm run kill-port && nodemon",
     "start": "npx nodemon"
   },
+  "type": "module",
+  
   "keywords": [],
   "author": "",
   "license": "ISC",
