@@ -12,7 +12,7 @@ setupRoutes(app);
 
 const DB = process.env.DATABASE_URL || "";
 if (!DB) {
-  throw new Error("DATABASE_URL is not defined in the environment variables");
+  throw new Error("DATABASE_URL not defined");
 }
 mongoose
   .connect(DB)
