@@ -12,5 +12,22 @@ export interface ICV extends Document {
 }
 
 const cvSchema: Schema<ICV> = new mongoose.Schema({
-    
+  userId: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User',
+    required: true,
+  },
+  role: {
+    type: String,
+    required: true,
+  },
+  company: {
+    type: String,
+    required: true,
+  },
+  year: {
+    type: String,
+    required: true,
+  },
+  
 });
