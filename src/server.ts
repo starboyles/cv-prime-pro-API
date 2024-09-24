@@ -3,10 +3,12 @@ import mongoose from "mongoose";
 import dotenv from "dotenv";
 import { setupRoutes } from ".";
 
-dotenv.config({path:'.env'});
+dotenv.config({ path: ".env" });
 
 const app: Application = express();
 const PORT = process.env.PORT;
+
+app.use(express.json());
 
 setupRoutes(app);
 
