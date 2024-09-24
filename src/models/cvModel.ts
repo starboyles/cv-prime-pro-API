@@ -52,3 +52,11 @@ const cvSchema: Schema<ICV> = new mongoose.Schema(
     timestamps: true,
   }
 );
+
+cvSchema.pre<ICV>('save', function(next) {
+  this.updatedAt = new Date();
+  next();
+});
+
+const CV = mongoose.model<ICV>("CV", cvSchema);
+export default CV;
