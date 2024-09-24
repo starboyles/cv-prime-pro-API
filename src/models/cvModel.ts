@@ -29,5 +29,26 @@ const cvSchema: Schema<ICV> = new mongoose.Schema({
     type: String,
     required: true,
   },
-  
-});
+  isCurrentlyWorking: {
+    type: Boolean,
+    required: true,
+    default: false,
+  },
+  experience: {
+    type: [String],
+    required: true,
+  },
+    createdAt: {
+        type: Date,
+        default: Date.now,
+    },
+    updatedAt: {
+        type: Date,
+        default: Date.now,
+    },
+},
+{
+    timestamps: true
+}
+);
+
