@@ -1,11 +1,10 @@
-import express, { Request, Response } from "express";
-import { PORT } from "./secrets";
-const app = express();
+import { Application } from 'express';
+import authRoutes from './routes/auth.routes';
+import userRoutes from './routes/user.routes';
+import cvRoutes from './routes/cv.routes';
 
-app.get('/', (req:Request, res:Response) => {
-  res.send("CV Prime Pro Server")
-})
-
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-});
+export const setupRoutes = (app: Application) => {
+  app.use('api/v1/auth', authRoutes);
+  app.use('api/v1/users', userRoutes);
+  app.use('api/v1/cv', cvRoutes);
+};
