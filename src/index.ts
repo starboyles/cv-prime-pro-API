@@ -9,4 +9,4 @@ export const setupRoutes = (app: Application) => {
   app.use('/api/v1/cv', cvRoutes);
 };
 
-module.exports = setupRoutes;
+module.exports = { setupRoutes };
