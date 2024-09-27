@@ -20,8 +20,6 @@ export const createCV = async (data: {
   });
 
   await newCV.save();
-
-  // Increment CV count for the user
   const user = await User.findById(userId);
   if (!user) throw new Error("User not found");
 
