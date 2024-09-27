@@ -6,12 +6,12 @@ exports.createCV = async (req: Request, res: Response) => {
   try {
     const userId = req.user.id;
     const { role, company, year, isCurrentlyWorking, experience } = req.body;
-    const newcv = await cvService.createCV(req.body);
+    const newCv = await cvService.createCV(req.body);
     res.status(201).json({
       status: "success",
       message: "CV created successfully",
       data: {
-        CV,
+        cv: newCv,
       },
     });
   } catch (err) {
