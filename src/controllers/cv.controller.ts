@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
 import CV from "../models/cvModel";
+import * as cvService from "../services/cv.service";
 
 exports.createCV = async (req: Request, res: Response) => {
   try {
@@ -15,10 +16,8 @@ exports.createCV = async (req: Request, res: Response) => {
     });
   } catch (err) {
     res.status(400).json({
-        status: "fail",
-        message: (err as Error).message,
+      status: "fail",
+      message: (err as Error).message,
     });
   }
 };
-
-
