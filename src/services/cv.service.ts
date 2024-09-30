@@ -34,3 +34,6 @@ export const getCVById = async (cvId: string) => {
   if (!cv) throw new Error("CV not found");
   return cv;
 };
+
+
+
