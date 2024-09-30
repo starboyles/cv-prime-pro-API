@@ -9,7 +9,7 @@ interface CustomRequest extends Request {
   };
 }
 
-exports.createCV = async (req: CustomRequest, res: Response) => {
+export const createCV = async (req: CustomRequest, res: Response) => {
   try {
     const userId = req.user?.id;
     const { role, company, year, isCurrentlyWorking, experience } = req.body;
@@ -28,3 +28,7 @@ exports.createCV = async (req: CustomRequest, res: Response) => {
     });
   }
 };
+
+export const getCVById = async (req: Request, res: Response) => {
+  
+}
