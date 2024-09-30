@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import CV from "../models/cvModel";
 import * as cvService from "../services/cv.service";
-import { buffer } from "stream/consumers";
+
 
 // Extend the Request interface to include user property
 interface CustomRequest extends Request {
@@ -58,4 +58,10 @@ export const downloadCV = async (req: Request, res: Response) => {
     });
   }
 };
+
+
+
+
+
+
 
