@@ -30,5 +30,15 @@ export const createCV = async (req: CustomRequest, res: Response) => {
 };
 
 export const getCVById = async (req: Request, res: Response) => {
-  
+  try {
+    const cvId = req.params.id;
+    const cv = await cvService.getCVById(cvId);
+    
+    res.status(200).json(cv);
+  } catch (err) {
+    res.status(400).json({
+      status: "fail",
+      message: (err as Error).message,
+    });
+  }
 }
