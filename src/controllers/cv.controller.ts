@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
 import CV from "../models/cvModel";
 import * as cvService from "../services/cv.service";
+import { buffer } from "stream/consumers";
 
 // Extend the Request interface to include user property
 interface CustomRequest extends Request {
@@ -33,7 +34,7 @@ export const getCVById = async (req: Request, res: Response) => {
   try {
     const cvId = req.params.id;
     const cv = await cvService.getCVById(cvId);
-    
+
     res.status(200).json(cv);
   } catch (err) {
     res.status(400).json({
@@ -42,3 +43,19 @@ export const getCVById = async (req: Request, res: Response) => {
     });
   }
 }
+
+export const downloadCV = async (req: Request, res: Response) => {
+  try {
+    const cvId = req.params.id;
+    const cv = await cvService.getCVById(cvId);
+    res.setHeader("Content-Type", "application/pdf");
+    res.setHeader("Content-Disposition", `attachment; filename="cv_${cvId}.pdf"`);
+    res.status(200).send(cv);
+  } catch (err) {
+    res.status(404).json({
+      status: "fail",
+      message: (err as Error).message,
+    });
+  }
+};
+
