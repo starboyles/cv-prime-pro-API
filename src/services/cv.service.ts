@@ -28,3 +28,9 @@ export const createCV = async (data: {
 
   return newCV;
 };
+
+export const getCVById = async (cvId: string) => {
+  const cv = await CV.findById(cvId);
+  if (!cv) throw new Error("CV not found");
+  return cv;
+};
