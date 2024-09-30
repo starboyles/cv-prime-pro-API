@@ -49,7 +49,7 @@ export const downloadCV = async (req: Request, res: Response) => {
     const cvId = req.params.id;
     const cv = await cvService.getCVById(cvId);
     res.setHeader("Content-Type", "application/pdf");
-    res.setHeader("Content-Disposition", `attachment; filename="cv_${cvId}.pdf"`);
+    res.setHeader("Content-Disposition", `attachment; filename=${cvId}.pdf`);
     res.status(200).send(cv);
   } catch (err) {
     res.status(404).json({
