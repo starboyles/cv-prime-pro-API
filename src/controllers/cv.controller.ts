@@ -2,7 +2,6 @@ import { Request, Response } from "express";
 import CV from "../models/cvModel";
 import * as cvService from "../services/cv.service";
 
-
 // Extend the Request interface to include user property
 interface CustomRequest extends Request {
   user?: {
@@ -10,7 +9,7 @@ interface CustomRequest extends Request {
   };
 }
 
-export const createCV = async (req: CustomRequest, res: Response) => {
+exports.createCV = async (req: CustomRequest, res: Response) => {
   try {
     const userId = req.user?.id;
     const { role, company, year, isCurrentlyWorking, experience } = req.body;
@@ -30,7 +29,7 @@ export const createCV = async (req: CustomRequest, res: Response) => {
   }
 };
 
-export const getCVById = async (req: Request, res: Response) => {
+exports.getCVById = async (req: Request, res: Response) => {
   try {
     const cvId = req.params.id;
     const cv = await cvService.getCVById(cvId);
@@ -42,9 +41,9 @@ export const getCVById = async (req: Request, res: Response) => {
       message: (err as Error).message,
     });
   }
-}
+};
 
-export const downloadCV = async (req: Request, res: Response) => {
+exports.downloadCV = async (req: Request, res: Response) => {
   try {
     const cvId = req.params.id;
     const cv = await cvService.getCVById(cvId);
@@ -59,9 +58,15 @@ export const downloadCV = async (req: Request, res: Response) => {
   }
 };
 
-
-
-
-
-
-
+exports.deleteCV = async (cvId: string) => {
+  try {
+    const cv = await CV.findById(cvId);
+    if (!cv) throw new Error("CV not found");
+    await CV.findByIdAndDelete();
+  } catch (err) {
+    res.status(404).json({
+      status: "fail",
+      message: (err as Error).message,
+    });
+  }
+}
