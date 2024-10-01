@@ -58,11 +58,16 @@ exports.downloadCV = async (req: Request, res: Response) => {
   }
 };
 
-exports.deleteCV = async (cvId: string) => {
+exports.deleteCV = async (req: Request, res: Response) => {
   try {
+    const cvId = req.params.id;
     const cv = await CV.findById(cvId);
     if (!cv) throw new Error("CV not found");
-    await CV.findByIdAndDelete();
+    await CV.findByIdAndDelete(cvId);
+    res.status(204).json({
+      status: "success",
+      message: "CV deleted successfully",
+    });
   } catch (err) {
     res.status(404).json({
       status: "fail",
