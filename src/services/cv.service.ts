@@ -1,4 +1,4 @@
-import fs from 'fs'
+import fs from "fs";
 import CV from "../models/cvModel";
 import User from "../models/userModel";
 import { buffer } from "stream/consumers";
@@ -45,4 +45,3 @@ export const downloadCV = async (cvId: string) => {
   const pdfBuffer = fs.readFileSync(pdfFilePath);
   return pdfBuffer;
 };
-
