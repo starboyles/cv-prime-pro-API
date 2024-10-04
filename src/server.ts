@@ -1,7 +1,7 @@
 import express, { Application } from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
-import { setupRoutes } from ".";
+import { setupRoutes } from "./index.js";
 
 dotenv.config({ path: ".env" });
 
@@ -19,7 +19,7 @@ if (!DB) {
 mongoose
   .connect(DB)
   .then(() => console.log("DB Connection Successful"))
-  .catch((err: any) => console.error("DB Connection Error:", err));
+  .catch((err) => console.error("DB Connection Error:", err));
 
 app.listen(PORT, () => {
   console.log(`CV-Prime-Pro running on port ${PORT}.... `);
