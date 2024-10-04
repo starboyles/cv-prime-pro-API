@@ -2,12 +2,12 @@
   "name": "cv-prime-pro-api",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "kill-port": "lsof -t -i:8000 | xargs kill -9 || echo 'No process running on port 8000'",
-    "dev": "npm run kill-port && nodemon",
-    "start": "npx nodemon"
+   "start": "node src/server.js",
+    "dev": "nodemon --watch 'src/**/*' --exec 'node --loader ts-node/esm' src/server.js"
   },
   "type": "module",
   "keywords": [],
