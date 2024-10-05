@@ -9,6 +9,7 @@ export const createCV = async (data: {
   role: string;
   company: string;
   year: string;
+  isCurrentlyWorking: boolean;
   experience: string[];
 }) => {
   const { userId, role, company, year, experience } = data;
