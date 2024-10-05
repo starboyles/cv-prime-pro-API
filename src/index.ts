@@ -1,7 +1,7 @@
 import { Application } from 'express';
-import authRoutes from './routes/auth.routes';
-import userRoutes from './routes/user.routes';
-import cvRoutes from './routes/cv.routes';
+import authRoutes from './routes/auth.routes.ts';
+import userRoutes from './routes/user.routes.ts';
+import cvRoutes from './routes/cv.routes.ts';
 
 
 export const setupRoutes = (app: Application) => {
@@ -10,4 +10,3 @@ export const setupRoutes = (app: Application) => {
   app.use('/api/v1/cv', cvRoutes);
 };
 
-module.exports = { setupRoutes };
