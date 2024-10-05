@@ -1,8 +1,8 @@
 import fs from "fs";
-import CV from "../models/cvModel";
-import User from "../models/userModel";
+import CV from "../models/cvModel.ts";
+import User from "../models/userModel.ts";
 import { buffer } from "stream/consumers";
-import { createPDF } from "../utilities/pdfGenerator";
+import { createPDF } from "../utilities/pdfGenerator.ts";
 
 export const createCV = async (data: {
   userId: string;

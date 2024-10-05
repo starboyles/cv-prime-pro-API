@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { createCV } from '../controllers/cv.controller';
+import { createCV } from '../controllers/cv.controller.ts';
 
 const router = Router();
 

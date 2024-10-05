@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
-import CV from "../models/cvModel";
-import * as cvService from "../services/cv.service";
+import CV from "../models/cvModel.ts";
+import * as cvService from "../services/cv.service.ts";
 
 // Extending the Request interface to include user property
 interface CustomRequest extends Request {
