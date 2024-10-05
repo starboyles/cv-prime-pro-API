@@ -1,7 +1,7 @@
 import express, { Application } from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
-import { setupRoutes } from "./index.js";
+import { setupRoutes } from "./index.ts";
 
 dotenv.config({ path: ".env" });
 
