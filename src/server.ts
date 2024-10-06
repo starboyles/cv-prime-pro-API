@@ -22,5 +22,5 @@ mongoose
   .catch((err) => console.error("DB Connection Error:", err));
 
 app.listen(PORT, () => {
-  console.log(`CV-Prime-Pro running on port ${PORT}.... `);
+  console.log(`CV-Prime-Pro backend running on port ${PORT}.... `);
 });
