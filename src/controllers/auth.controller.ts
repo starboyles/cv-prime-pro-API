@@ -28,5 +28,9 @@ export const signup = async (req: Request, res: Response) => {
       role: 'BASIC',
       cvCount: 0  
     });
+    await newUser.save();
+
+    
+
   } catch (err) {}
 };
