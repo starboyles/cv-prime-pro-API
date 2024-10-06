@@ -19,7 +19,7 @@ export const signup = async (req: Request, res: Response) => {
         message: "User already exists",
       });
     }
-    const hashedPassword = await bcrypt.hash(password, 10);
+    const hashedPassword = await bcrypt.hashPassword(password, 10);
     const newUser = new User({
       email,
       password: hashedPassword,
@@ -30,7 +30,7 @@ export const signup = async (req: Request, res: Response) => {
     });
     await newUser.save();
 
-    
+
 
   } catch (err) {}
 };
