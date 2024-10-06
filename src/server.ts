@@ -18,7 +18,7 @@ if (!DB) {
 }
 mongoose
   .connect(DB)
-  .then(() => console.log("DB Connection Successful"))
+  .then(() => console.log("DB Connection Successful!!!"))
   .catch((err) => console.error("DB Connection Error:", err));
 
 app.listen(PORT, () => {
